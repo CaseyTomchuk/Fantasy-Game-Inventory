@@ -12,11 +12,15 @@ def displayInventory(inventory):
 
 def addToInventory(inventory, addedItems):
     tempDict = {value: addedItems.count(value) for value in addedItems} #value is the number of times the item appears in loot
-    print(tempDict)
+    for key in tempDict:
+        inventory[key] = inventory.get(key, 0) + tempDict[key] # looks up count of the item in inventory, then adds the number of times the item appears in added items
 
+print("========================================================================")
+displayInventory(stuff)
+print("************************************************************************")
+print("You encounter a dragon! It was slain easily.")
+print(f"Loot obtained: {dragonLoot}")
 addToInventory(stuff, dragonLoot) # stuff is existing inventory, dragonLoot is what is added
-#displayInventory(stuff)
-
-# LIST TO DICTIONARY
-#The addToInventory() function should return a dictionary that represents the updated inventory
-# gold coin: 3 dagger: 1 ruby: 1
+print("************************************************************************")
+displayInventory(stuff)
+print("========================================================================")
